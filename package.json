@@ -1,0 +1,19 @@
+{
+  "name": "memo-print",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "del": "^2.2.2",
+    "express": "^4.15.2",
+    "memobird": "^0.0.2",
+    "multer": "^1.3.0"
+  }
+}
