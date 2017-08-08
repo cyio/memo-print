@@ -18,23 +18,21 @@ new Vue({
   },
   methods: {
     submit() {
-      const self = this
       this.printStatus = '正在请求打印'
       axios.post('/', {
         type: this.type,
         content: this.content,
       })
-        .then(function (response) {
+        .then((response) => {
+          console.log(response.data)
           if (response.data.ok) {
-            self.printStatus = '打印成功'
-            self.content = null
+            this.printStatus = '打印成功'
+            this.content = null
           } else {
-            self.printStatus = '未打印，监听超时'
+            this.printStatus = '未打印，监听超时'
           }
         })
-        .catch(function (error) {
-          console.error(error);
-        });
+        .catch((error) => console.error(error) )
     }
   },
   mounted() {

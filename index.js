@@ -31,8 +31,8 @@ function print(content, type) {
         if (type === 'text') {
           memobird.printText(content)
         } else if (type === 'image') {
-          memobird.printImage(content)
-        }
+					memobird.print(Memobird.encodeImage(content))
+				}
       })
       .then(printcontentid => memobird.watch(printcontentid, 1500, 15000))
       .then(printflag => resolve(printflag))
