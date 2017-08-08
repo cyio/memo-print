@@ -57,6 +57,7 @@ app.post('/', (req, res) => {
 })
 
 // 最好用中间件，否则收到的数据处理很麻烦
+// https://docs.fineuploader.com/endpoint_handlers/traditional.html
 app.post('/upload', uploadMW, (req, res, next) => {
   try {
     res.send({
@@ -66,6 +67,7 @@ app.post('/upload', uploadMW, (req, res, next) => {
     toPrintImg = __dirname + '/' + req.files[0].path
     console.log(req.files[0].path)
   } catch (err) {
+		console.error('upload error', err)
     res.send({
       success: false
     });

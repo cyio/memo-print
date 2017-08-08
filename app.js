@@ -6,7 +6,24 @@ const uploader = new qq.FineUploader({
   },
   request: {
     endpoint: '/upload'
-  }
+  },
+	validation: {
+		allowedExtensions: ['jpeg', 'jpg', 'png'],
+		sizeLimit: 1024000 // 50 kB = 50 * 1024 bytes，宽松限制，不得超过10M
+	},
+	multiple: false,
+	callbacks: {
+		onSubmit: (id, fileName) => {
+		},
+		onCancel: (id, fileName) => {
+		},
+		onComplete: (id, fileName, responseJSON) => {
+			console.log(responseJSON)
+			if (responseJSON.success) {
+				console.log('success')
+			}
+		}
+	},
 })
 
 new Vue({
